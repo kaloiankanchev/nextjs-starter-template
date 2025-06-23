@@ -1,0 +1,68 @@
+@page
+@model BulgariaMapApp.Pages.MapModel
+@{
+    ViewData["Title"] = "Bulgaria Map with Flags";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"] - BulgariaMapApp</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet" />
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        #map {
+            height: 90vh;
+            width: 100%;
+        }
+        .gm-style-iw {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="text-3xl font-bold p-4 text-center">Bulgaria Map with Flags</h1>
+    <div id="map"></div>
+
+    <script>
+        const flags = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.Flags));
+
+        function initMap() {
+            const bulgariaCenter = { lat: 42.7339, lng: 25.4858 };
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 7,
+                center: bulgariaCenter,
+            });
+
+            flags.forEach(flag => {
+                const marker = new google.maps.Marker({
+                    position: { lat: flag.Latitude, lng: flag.Longitude },
+                    map: map,
+                    title: flag.Name,
+                    icon: {
+                        url: flag.FlagUrl,
+                        scaledSize: new google.maps.Size(32, 20),
+                    }
+                });
+
+                const infoWindow = new google.maps.InfoWindow({
+                    content: `<div><strong>ID:</strong> ${flag.Id}<br/><strong>Name:</strong> ${flag.Name}</div>`
+                });
+
+                marker.addListener("click", () => {
+                    infoWindow.open(map, marker);
+                });
+            });
+        }
+
+        window.onload = initMap;
+    </script>
+</body>
+</html>
