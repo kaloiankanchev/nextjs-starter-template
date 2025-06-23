@@ -1,0 +1,7 @@
+/project/sandbox/user-workspace/BulgariaMapApp/obj/Debug/net8.0/BulgariaMapApp.GeneratedMSBuildEditorConfig.editorconfig
+/project/sandbox/user-workspace/BulgariaMapApp/obj/Debug/net8.0/BulgariaMapApp.AssemblyInfoInputs.cache
+/project/sandbox/user-workspace/BulgariaMapApp/obj/Debug/net8.0/BulgariaMapApp.AssemblyInfo.cs
+/project/sandbox/user-workspace/BulgariaMapApp/obj/Debug/net8.0/BulgariaMapApp.csproj.CoreCompileInputs.cache
+/project/sandbox/user-workspace/BulgariaMapApp/obj/Debug/net8.0/BulgariaMapApp.MvcApplicationPartsAssemblyInfo.cache
+/project/sandbox/user-workspace/BulgariaMapApp/obj/Debug/net8.0/BulgariaMapApp.RazorAssemblyInfo.cache
+/project/sandbox/user-workspace/BulgariaMapApp/obj/Debug/net8.0/BulgariaMapApp.RazorAssemblyInfo.cs
